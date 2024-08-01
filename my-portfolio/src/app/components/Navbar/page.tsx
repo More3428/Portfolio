@@ -1,18 +1,25 @@
-import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-800 p-4">
-      <ul className="flex space-x-4">
+    <nav className=" fixed-top w-full bg-gray-800 p-4">
+      <ul className="flex justify-center space-x-4 p-4">
+        
         <li>
-          <Link href="/">
-            <a className="text-white">Home</a>
-          </Link>
+          <a href="#about" className="text-lg font-semibold text-white hover:text-blue-300">
+            About
+          </a>
         </li>
         <li>
-          <Link href="/about">
-            <a className="text-white">About</a>
-          </Link>
+          <a href="#projects" className="text-lg font-semibold text-white hover:text-blue-300" >
+            Projects
+          </a>
+
+        </li>
+        <li>
+          <a href="#contact" className="text-lg font-semibold text-white hover:text-blue-300" >
+            Contact
+          </a>
+
         </li>
       </ul>
     </nav>
