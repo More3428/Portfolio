@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['CustomFont', 'sans-serif'], // Add your custom font here
+        custom: ['CustomFont', 'sans-serif'], 
+        custom2: ['CustomFont2', 'sans-serif'],// Add your custom font here
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
