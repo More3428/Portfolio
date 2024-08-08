@@ -7,7 +7,7 @@ import Projects from './components/Projects/page';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start w-full py-2 bg-slate-900 overflow-auto">
+    <div className="min-h-screen flex flex-col items-center justify-start w-full py-2 bg-slate-800 overflow-auto">
       <Head>
         <title>My Portfolio</title>
         <link rel="icon" href="/favicon.ico" />

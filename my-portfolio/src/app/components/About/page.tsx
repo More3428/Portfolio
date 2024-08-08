@@ -10,10 +10,10 @@ const About = () => {
                     <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl tracking-tight text-white font-custom2 mb-2">
                         Andre Moreno
                     </h1> 
-                    <h2 className="tracking-tight text-white sm:text-5xl font-custom2 relative z-10">Software Engineer</h2>
+                    <h2 className="tracking-tight text-white sm:text-5xl font-custom2 relative z-10 pb-2">Software Engineer</h2>
                     <div className='flex space-x-4'>
                         <a href="https://github.com/More3428" target="_blank" rel="noopener noreferrer">
-                            <img src="/assets/Githubimage.png" alt="github" className='w-12 h-12 rounded-full drop-shadow-md'/>
+                            <img src="/assets/Githubimage.png" alt="github" className='w-12 h-12 rounded-full drop-shadow-md bg-white'/>
                         </a>
                         <a href="https://www.linkedin.com/in/andre-moreno-670395188/" target="_blank" rel="noopener noreferrer">
                             <img src="/assets/LinkedIn.jpg" alt="LinkedIn" className='w-12 h-12 rounded-full drop-shadow-md'/>
@@ -24,13 +24,18 @@ const About = () => {
                 {/* Right Section */}
                 <div className="w-1/2 flex items-center justify-center ">
                     <div className="text-center text-white px-4 ">
-                        <h1 className="text-left text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-custom2 mb-4">About</h1>
-                        <p className="text-justify text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-white p-4 rounded">
-                        As a first-generation college graduate, I carry a deep-seated passion for continuous learning and relentless innovation. I hold a degree in Computer Science, specializing in Software Engineering. My skills extend to web development, data management, and UI/UX design. Additionally, I have experience as a Data Analyst, building data tables and managing data using Microsoft Power Query. I possess strong problem-solving, team management, and adaptability skills. I am passionate about technology and committed to contributing to innovative projects.
-                        </p>
-                        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mt-4 ">
+                        <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-custom2 ">About</h1>
+                        <div className="bg-slate-900 text-justify text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-white p-4 rounded">
+                        <p className="pb-4">
+                        As a first-generation college graduate, I carry a deep-seated passion for continuous learning and relentless innovation. I hold a degree in Computer Science, specializing in Software Engineering. </p>
+                         <p className="pb-4">My skills encompass web development, data management, and UI/UX design. I have experience as a Data Analyst, where I built and managed data tables using Microsoft Power Query. </p> 
+                            <p className="pb-1">Additionally, I interned as a Full-Stack Developer, focusing on front-end development and RESTful APIs. As a recent graduate, 
+                                                I am eager to start my career in the industry and am continuously honing my skills as a software engineer. </p> 
+
+                        </div>
+                        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between ">
                             <div className="items-center justify-center">
-                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-custom2 mb-4 mt-4">Education</h2>
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-custom2  mt-4">Education</h2>
                         
                                     <div className=" space-y-2 text-sm text-md lg:text-xl  font-serif " >
                                         <p> California State University, Monterey Bay </p>
@@ -39,9 +44,9 @@ const About = () => {
                                         <p> 2019-2023 </p>
                                     </div>
                             </div>
-                            <div className="items-center justify-end">
+                            
                                 <img src="../assets/csumblogo.png" alt="csumblogo.png" className="w-24 h-24" />
-                            </div>
+                            
                         </div>
                     </div>
                     
