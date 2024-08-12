@@ -13,7 +13,7 @@ const About = () => {
                     <h2 className="tracking-tight text-white sm:text-5xl font-custom2 relative z-10 pb-2">Software Engineer</h2>
                     <div className='flex space-x-4'>
                         <a href="https://github.com/More3428" target="_blank" rel="noopener noreferrer">
-                            <img src="/assets/Githubimage.png" alt="github" className='w-12 h-12 rounded-full drop-shadow-md bg-white'/>
+                            <img src="/assets/githublogo.png" alt="github" className='w-12 h-12 rounded-full drop-shadow-md bg-white'/>
                         </a>
                         <a href="https://www.linkedin.com/in/andre-moreno-670395188/" target="_blank" rel="noopener noreferrer">
                             <img src="/assets/LinkedIn.jpg" alt="LinkedIn" className='w-12 h-12 rounded-full drop-shadow-md'/>
