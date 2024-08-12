@@ -65,31 +65,99 @@ const Projects = () => {
                         <div className=" text-white p-4 rounded-lg h-96 w-full overflow-y-scroll">
                             <ScrollShadow hideScrollBar>
                             {/* Example Project Cards */}
-                            <div className="flex flex-row bg-slate-900 p-4 mb-4 rounded-lg">
-                                <div className="p-4"> 
+                            <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 p-2 mb-4 rounded-lg">
+                                <div className="p-2"> 
+                                    <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 rounded drop-shadow-md' />
+                                    <div className="flex space-x-4 pb-2">
+                                        <p className="underline font-mono">Learn More</p>
+                                        <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
+                                        <p className="underline font-mono">Github</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="font-mono text-left">
+                                    <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
+                                    <p className="text-sm">Created a program with a team of 4 where MBARI is able to log their expeditions and gather data.</p>
+                                    <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
+                                    <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
+                                    <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 p-2 mb-4 rounded-lg">
+                                <div className="p-2"> 
+                                    <img src="/assets/portfolio.png" alt="portfolio" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
+                                    <div className="flex space-x-4 pb-2">
+                                        <p className="underline font-mono">Learn More</p>
+                                        <a href="https://github.com/More3428/Portfolio" target="_blank" rel="noopener noreferrer">
+                                        <p className="underline font-mono">Github</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="font-mono text-left">
+                                    <h2 className="font-custom2 text-3xl underline decoration-1">Portfolio</h2>
+                                    <p className="text-sm">Created this portfolio to showcase my work as a software engineer.</p>
+                                    <p className="text-sm">Here you will learn more about me and what I've been up to since graduating college in december of 2023</p>
+                                    <p className="text-sm">This is just one of many projects.</p>
+                                    <h3>Tools: React, Next.js, TypeScript, TailwindCSS, NextUI  </h3>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 p-2 mb-4 rounded-lg">
+                                <div className="p-2"> 
+                                    <img src="/assets/redisicon2.png" alt="bash" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
+                                    <div className="flex space-x-4 pb-2">
+                                        <p className="underline font-mono">Learn More</p>
+                                        <a href="https://github.com/More3428/Redis" target="_blank" rel="noopener noreferrer">
+                                        <p className="underline font-mono">Github</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="font-mono text-left">
+                                    <h2 className="font-custom2 text-3xl underline decoration-1">Redis Clone in C/C++</h2>
+                                    <p className="text-sm">Created a clone of Redis from scratch using C/C++.</p>
+                                    <p className="text-sm">Created an in Memory data structure store.</p>
+                                    <p className="text-sm">Data Structures and Network Programming</p>
+                                    <h3>Tools: C/C++  </h3>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 p-2 mb-4 rounded-lg">
+                                <div className="p-2"> 
                                     <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 bg-white rounded drop-shadow-md' />
+                                    <div className="flex space-x-4 pb-2">
+                                        <p className="underline font-mono">Learn More</p>
+                                        <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
+                                        <p className="underline font-mono">Github</p>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h2 className="text-xl font-bold">MBARI Modernization Project</h2>
-                                    <p className="text-sm">Description of Project 1.</p>
+                                <div className="font-mono text-left">
+                                    <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
+                                    <p className="text-sm">Created a program with a team of 4 where MBARI is able to log their expeditions and gather data.</p>
+                                    <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
+                                    <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
+                                    <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
                                 </div>
-                                
                             </div>
-                            <div className=" bg-slate-900 p-4 mb-4 rounded-lg">
-                                <h2 className="text-xl font-bold">Project 2</h2>
-                                <p className="text-sm">Description of Project 2.</p>
-                            </div>
-                            <div className="bg-slate-900 p-4 mb-4 rounded-lg">
-                                <h2 className="text-xl font-bold">Project 3</h2>
-                                <p className="text-sm">Description of Project 3.</p>
-                            </div>
-                            <div className="bg-slate-900 p-4 mb-4 rounded-lg">
-                                <h2 className="text-xl font-bold">Project 4</h2>
-                                <p className="text-sm">Description of Project 4.</p>
-                            </div>
-                            <div className="bg-slate-900 p-4 mb-4 rounded-lg">
-                                <h2 className="text-xl font-bold">Project 5</h2>
-                                <p className="text-sm">Description of Project 5.</p>
+
+                            <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 p-2 mb-4 rounded-lg">
+                                <div className="p-2"> 
+                                    <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 bg-white rounded drop-shadow-md' />
+                                    <div className="flex space-x-4 pb-2">
+                                        <p className="underline font-mono">Learn More</p>
+                                        <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
+                                        <p className="underline font-mono">Github</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="font-mono text-left">
+                                    <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
+                                    <p className="text-sm">Created a program with a team of 4 where MBARI is able to log their expeditions and gather data.</p>
+                                    <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
+                                    <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
+                                    <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
+                                </div>
                             </div>
                             </ScrollShadow>
                             {/* Add more projects as needed */}
