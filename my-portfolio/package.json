@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@nextui-org/scroll-shadow": "^2.1.19",
     "@nextui-org/system": "^2.2.5",
     "@nextui-org/theme": "^2.2.9",
