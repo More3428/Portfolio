@@ -17,15 +17,15 @@ export default function Home() {
       <Navbar />
 
       <div className="w-full">
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center">
+        <section id="about" className="min-h-screen">
           <About />
         </section>
         
-        <section id="projects" className="min-h-screen flex flex-col items-center justify-center">
+        <section id="projects" className="min-h-screen flex flex-col ">
           <Projects />
         </section>
         
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center">
+        <section id="contact" className="min-h-screen flex flex-col">
           <Contact />
         </section>
       </div>
