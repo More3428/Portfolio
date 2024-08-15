@@ -10,9 +10,9 @@ const Projects = () => {
 
                     {/* Left Section: Skills and Experience */}
                     <div className="w-1/2 flex flex-col items-center justify-center">
-                        <h1 className="tracking-tight text-white text-5xl font-custom2 relative z-10">Skills and Experience</h1>
+                        <h1 className="tracking-tight text-white text-4xl font-custom3 relative z-10 pb-4 shadow-xl">Skills and Experience</h1>
                         <div className="bg-slate-900 text-justify text-white text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-white p-4 rounded">
-                            <h2 className="text-3xl underline">Skills</h2>
+                            <h2 className="text-3xl underline ">Skills</h2>
                             <ul>
                                 <li>
                                     <p className="pb-2">Languages: Python, Java, JavaScript, C/C++, SQL, Bash</p>
@@ -60,7 +60,7 @@ const Projects = () => {
 
                     {/* Right Section: Projects */}
                     <div className="w-1/2 flex flex-col items-center justify-center p-4">
-                        <h1 className="tracking-tight text-white text-5xl font-custom2 relative z-10">Projects</h1>
+                        <h1 className="tracking-tight text-white text-4xl font-custom3 shadow-xl relative z-10">Projects</h1>
                         
                         <div className=" text-white p-4 rounded-lg h-96 w-full overflow-y-scroll">
                             <ScrollShadow hideScrollBar>
