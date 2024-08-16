@@ -25,7 +25,7 @@ export default function Home() {
           <Projects />
         </section>
         
-        <section id="contact" className="min-h-screen flex flex-col">
+        <section id="contact" className="min-h-screen ">
           <Contact />
         </section>
       </div>

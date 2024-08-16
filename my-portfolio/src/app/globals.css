@@ -59,3 +59,26 @@ p {
   margin: 0 auto; /* Center the paragraph */
   max-width: 700px; /* Adjust the maximum width as needed */
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the entire scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b; /* Darker background color for the track */
+  border-radius: 10px; /* Rounder edges */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #64748b; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounder edges */
+  border: 2px solid #1e293b; /* Adds a border around the thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #475569; /* Color of the scrollbar thumb when hovered */
+}
+
+.underline-thin {
+  text-decoration-thickness: 1px;
+}
