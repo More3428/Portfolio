@@ -25,7 +25,7 @@ const About = () => {
                 <div className="w-1/2 flex items-center justify-center ">
                     <div className="text-center text-white px-4 ">
                         <h1 className="text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl font-custom3 pb-3 ">About</h1>
-                        <div className="bg-slate-900 text-justify text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-white p-4 rounded">
+                        <div className="bg-slate-900 text-justify text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-slate-500 p-4 rounded">
                         <p className="pb-4">
                         As a first-generation college graduate, I carry a deep-seated passion for continuous learning and relentless innovation. I hold a degree in Computer Science, specializing in Software Engineering. </p>
                          <p className="pb-4">My skills encompass web development, data management, and UI/UX design. I have experience as a Data Analyst, where I built and managed data tables using Microsoft Power Query. </p> 
