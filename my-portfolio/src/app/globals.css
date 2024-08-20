@@ -82,3 +82,8 @@ p {
 .underline-thin {
   text-decoration-thickness: 1px;
 }
+
+#top-bar, #bottom-bar {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
