@@ -1,16 +1,22 @@
-import React from "react";
+"use client"
+import { useEffect, useRef } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 
 const Projects = () => {
+    const projectListRef = useRef(null);
+    const topBarRef = useRef(null);
+    const bottomBarRef = useRef(null); 
+
+
     return (
-        <div className="w-full">
-    <section id="projects" className="min-h-screen flex flex-col items-center justify-center">
-        <div className="flex flex-row items-start justify-center w-full max-w-7xl">
+        
+    <section id="projects" className="min-h-screen flex flex-col items-center justify-center w-full">
+        <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-7xl">
 
             {/* Left Section: Skills and Experience */}
-            <div className="w-1/2 flex flex-col items-center justify-center">
-                <h1 className="tracking-tight text-white text-4xl font-custom3 relative z-10 pb-4 shadow-xl">Skills and Experience</h1>
+            <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+                <h1 className="text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl text-white font-custom3 relative z-10 pb-4 shadow-xl">Skills and Experience</h1>
                 <div className="bg-slate-900 text-justify text-white text-sm text-md lg:text-xl font-medium pb-4 tracking-tight font-serif border border-slate-500 p-4 rounded flex-grow">
                     <h2 className="text-3xl underline">Skills</h2>
                     <ul>
@@ -59,8 +65,8 @@ const Projects = () => {
             </div>
 
             {/* Right Section: Projects */}
-            <div className="w-1/2 flex flex-col items-center justify-center p-4">
-                <h1 className="tracking-tight text-white text-4xl font-custom3 shadow-xl relative z-10">Projects</h1>
+            <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+                <h1 className="tracking-tight text-white text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl font-custom3 relative p-4">Projects</h1>
                 
                 <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
                     <ScrollShadow hideScrollBar>
@@ -109,10 +115,10 @@ const Projects = () => {
 
                     <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
                         <div className="p-2"> 
-                            <img src="/assets/journal-man-11.png" alt="bash" className='w-30 h-auto max-w-full max-h-40 rounded drop-shadow-md' />
+                            <img src="/assets/journal-man-11.png" alt="taskApp" className='w-30 h-auto max-w-full max-h-40 rounded drop-shadow-md' />
                             <div className="flex space-x-4 pb-2">
                                 <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
+                                <a href="https://github.com/More3428/TakeAWalk" target="_blank" rel="noopener noreferrer">
                                 <p className="underline font-mono">Github</p>
                                 </a>
                             </div>
@@ -128,7 +134,7 @@ const Projects = () => {
 
                     <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
                         <div className="p-2"> 
-                            <img src="/assets/redisicon2.png" alt="bash" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
+                            <img src="/assets/redisicon2.png" alt="Redis" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
                             <div className="flex space-x-4 pb-2">
                                 <p className="underline font-mono">Learn More</p>
                                 <a href="https://github.com/More3428/Redis" target="_blank" rel="noopener noreferrer">
@@ -146,7 +152,7 @@ const Projects = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
+                    {/* <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
                         <div className="p-2"> 
                             <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 bg-white rounded drop-shadow-md' />
                             <div className="flex space-x-4 pb-2">
@@ -163,7 +169,7 @@ const Projects = () => {
                             <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
                             <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
                         </div>
-                    </div>
+                    </div> */}
                     </ScrollShadow>
                     {/* Add more projects as needed */}
                 </div>
@@ -171,7 +177,7 @@ const Projects = () => {
             </div>
         </div>
     </section>
-</div>
+
 
     );
 };

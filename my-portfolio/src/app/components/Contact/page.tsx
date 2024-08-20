@@ -5,13 +5,6 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from "framer-motion";
 
-const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible
-};
-
 const Contact = () => {
     const form = useRef<HTMLFormElement>(null);
 
@@ -39,28 +32,28 @@ const Contact = () => {
 };
 
   return (
-    <div className='flex min-h-screen'>
+    <div className='min-h-screen flex flex-col items-center justify-center w-full'>
 
-<div className="w-1/2 flex flex-col items-center gap-4 p-10">
-    <div className="flex items-start mt-36">
-        <h1 className="text-7xl font-custom3 p-4 pb-8 text-white font-bold underline underline-thin underline-offset-4">Contact Me</h1>
-    </div>
+      <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+        <div className="flex items-start">
+          <h1 className="lg:text-5xl md:text-2xl font-custom3 p-4  text-white font-bold underline underline-thin underline-offset-4">Contact Me</h1>
+      </div>
     
-    <div className="flex flex-grow">
-        <h1 className="text-xl font-mono text-white font-bold">andre.moreno5270@gmail.com </h1>
-    </div>
-</div>
+      <div className="flex flex-grow">
+        <h1 className="md:text-medium lg:text-xl sm:text-sm font-mono text-white font-bold pb-4">andre.moreno5270@gmail.com </h1>
+      </div>
+    
 
-  <div className="w-1/2 flex items-center justify-center p-10">
+  <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
     <div className="w-full max-w-2xl bg-slate-900 outline outline-1 outline-slate-500 shadow-lg rounded-lg p-8">
       <div>
         <h1 className='text-white font-mono text-center p-4'> Contact Form</h1>
       </div>
-      <form ref={form} onSubmit={sendEmail} className="space-y-4">
+      <form ref={form} onSubmit={sendEmail} className="text-sm text-md lg:text-xl space-y-4">
         <div className='flex flex-col md:flex-row'>
           <div className='w-full md:w-1/2 p-4'>
           
-            <label htmlFor="name" className="block text-l font-mono font-medium text-white">
+            <label htmlFor="name" className="block text-sm font-mono font-medium text-white">
               Name
             </label>
             <input
@@ -72,7 +65,7 @@ const Contact = () => {
             />
           </div>
           <div className='w-full md:w-1/2 p-4'>
-            <label htmlFor="email" className="block text-l  font-medium font-mono text-white">
+            <label htmlFor="email" className="block text-sm  font-medium font-mono text-white">
               Email
             </label>
             <input
@@ -110,6 +103,7 @@ const Contact = () => {
       </form>
     </div>
   </div>
+</div>
 </div>
   );
 };
