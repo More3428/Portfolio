@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import '../app/globals.css';
 import About from './components/About/page';
 import Contact from './components/Contact/page';
