@@ -25,7 +25,7 @@ const Projects = () => {
                             <div className="flex space-x-4 pb-2">
                                 <img src="/assets/pythonl.png" alt="Python" className='w-12 h-12 rounded-full drop-shadow-md' />
                                 <img src="/assets/java.png" alt="Java" className='w-12 h-12 rounded-full drop-shadow-md' />
-                                <img src="/assets/JavaScript.png" alt="JavaScript" className='w-12 h-12 rounded-full drop-shadow-md' />
+                                <img src="/assets/javascript.png" alt="JavaScript" className='w-12 h-12 rounded-full drop-shadow-md' />
                                 <img src="/assets/c++.png" alt="c++" className='w-12 h-12 rounded-full drop-shadow-md' />
                                 <img src="/assets/mysql.png" alt="mysql" className='w-12 h-12 rounded-full drop-shadow-md' />
                                 <img src="/assets/bash.png" alt="bash" className='w-12 h-12 rounded-full drop-shadow-md' />
