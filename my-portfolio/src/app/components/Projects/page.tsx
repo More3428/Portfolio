@@ -85,11 +85,8 @@ const Projects = () => {
                             <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
                             
                             <p className="text-sm font-semibold">Full Stack Application</p>
-                            <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
-                            <p className="text-sm">Created a program with a team of 4 where MBARI is able to log their expeditions and gather data.</p>
-                            <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
-                            <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
-                            <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
+                            <p className="text-sm underline decoration-1">Worked on Front-End Development and Back-End integration. Created a program with a team of 4 where MBARI is able to log their expeditions and gather data. Worked on Front-End Development and Back-End integration. Created a UI which allowed for an easy user-experience</p>
+                            <h3 className='font-semibold'>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
                         </div>
                     </div>
 
@@ -124,11 +121,11 @@ const Projects = () => {
                             </div>
                         </div>
                         <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">Take a Walk</h2>
+                            <h2 className="font-custom2 text-3xl underline decoration-1">Medical Image Management System</h2>
                             <p className="text-sm font-semibold">Full-stack application</p>
-                            <p className="text-sm">Front/Back End Development </p>
-                            <p className="text-sm">Social media app that allows users to post and map their journeys. Used React-native maps and geolocation features for user mapping.</p>
-                            <h3>Tools: React Native, Node.js, MongoDb</h3>
+                            <p className="text-sm font-semibold">Front/Back End Development </p>
+                            <p className="text-sm underline decoration-1">A Java-based application to manage, organize, and retrieve endoscopic images and videos. Includes basic metadata tagging, secure access controls, and search functionality and image processing capabilities (like brightness adjustment or simple filtering), which could be useful in a medical imaging context.</p>
+                            <h3 className="font-semibold">Tools: Java, Spring Boot, PostgreSQL, OpenCV, Flutter</h3>
                         </div>
                     </div>
 
