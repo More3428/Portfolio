@@ -2,12 +2,17 @@
 import { useEffect, useRef } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useProjects } from './ProjectsContext';
 
 const Projects = () => {
+    const { projects } = useProjects();
+    console.log("Rendered Projects:", projects);
+    const router = useRouter();
     const projectListRef = useRef(null);
     const topBarRef = useRef(null);
     const bottomBarRef = useRef(null); 
-
 
     return (
         
@@ -71,105 +76,24 @@ const Projects = () => {
                 <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
                     <ScrollShadow hideScrollBar>
                     {/* Example Project Cards */}
-                    <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
-                        <div className="p-2"> 
-                            <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 rounded drop-shadow-md' />
-                            <div className="flex space-x-4 pb-2">
-                                <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
-                                <p className="underline font-mono">Github</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
-                            
-                            <p className="text-sm font-semibold">Full Stack Application</p>
-                            <p className="text-sm underline decoration-1">Worked on Front-End Development and Back-End integration. Created a program with a team of 4 where MBARI is able to log their expeditions and gather data. Worked on Front-End Development and Back-End integration. Created a UI which allowed for an easy user-experience</p>
-                            <h3 className='font-semibold'>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
-                        </div>
+                    {projects.map((project, index) => (
+                    <div key={index} className="bg-slate-900 border border-slate-500 p-4 rounded-lg mb-4">
+                        <h2> {project.title}</h2>
+                        <p>{project.description}</p>
+                        {project.image && (
+                            <img src={project.image} alt={project.title}  />
+                        )}
+                        <p className="text-gray-400 text-sm">Tools: {project.tools}</p>
                     </div>
+                ))}
 
-                    <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
-                        <div className="p-2"> 
-                            <img src="/assets/portfolio.png" alt="portfolio" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
-                            <div className="flex space-x-4 pb-2">
-                                <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/More3428/Portfolio" target="_blank" rel="noopener noreferrer">
-                                <p className="underline font-mono">Github</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">Portfolio</h2>
-                            <p className="text-sm font-semibold">Web Development</p>
-                            <p className="text-sm">Created this portfolio to showcase my work as a software engineer.</p>
-                            <p className="text-sm">Here you will learn more about me and what I've been up to since graduating college in december of 2023</p>
-                            <p className="text-sm">Mostly used front-End development on this portfolio project.</p>
-                            <h3>Tools: React, Next.js, TypeScript, TailwindCSS, NextUI  </h3>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
-                        <div className="p-2"> 
-                            <img src="/assets/journal-man-11.png" alt="taskApp" className='w-30 h-auto max-w-full max-h-40 rounded drop-shadow-md' />
-                            <div className="flex space-x-4 pb-2">
-                                <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/More3428/TakeAWalk" target="_blank" rel="noopener noreferrer">
-                                <p className="underline font-mono">Github</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">Medical Image Management System</h2>
-                            <p className="text-sm font-semibold">Full-stack application</p>
-                            <p className="text-sm font-semibold">Front/Back End Development </p>
-                            <p className="text-sm underline decoration-1">A Java-based application to manage, organize, and retrieve endoscopic images and videos. Includes basic metadata tagging, secure access controls, and search functionality and image processing capabilities (like brightness adjustment or simple filtering), which could be useful in a medical imaging context.</p>
-                            <h3 className="font-semibold">Tools: Java, Spring Boot, PostgreSQL, OpenCV, Flutter</h3>
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
-                        <div className="p-2"> 
-                            <img src="/assets/redisicon2.png" alt="Redis" className='w-40 h-auto max-w-full max-h-40  rounded drop-shadow-md' />
-                            <div className="flex space-x-4 pb-2">
-                                <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/More3428/Redis" target="_blank" rel="noopener noreferrer">
-                                <p className="underline font-mono">Github</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">Redis Clone in C/C++</h2>
-                            <p className="text-sm font-semibold">DSA and Network Programming</p>
-                            <p className="text-sm">Created a clone of Redis from scratch using C/C++.</p>
-                            <p className="text-sm">Created an in Memory data structure store.</p>
-                            <p className="text-sm">Data Structures and Network Programming</p>
-                            <h3>Tools: C/C++  </h3>
-                        </div>
-                    </div>
-
-                    {/* <div className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
-                        <div className="p-2"> 
-                            <img src="/assets/mbarilogo.png" alt="bash" className='w-40 h-auto max-w-full max-h-40 bg-white rounded drop-shadow-md' />
-                            <div className="flex space-x-4 pb-2">
-                                <p className="underline font-mono">Learn More</p>
-                                <a href="https://github.com/MBARI-capstone/front-end" target="_blank" rel="noopener noreferrer">
-                                <p className="underline font-mono">Github</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="font-mono text-left">
-                            <h2 className="font-custom2 text-3xl underline decoration-1">MBARI Modernization Project</h2>
-                            <p className="text-sm">Created a program with a team of 4 where MBARI is able to log their expeditions and gather data.</p>
-                            <p className="text-sm">Worked on Front-End Development and Back-End integration.</p>
-                            <p className="text-sm">Created a UI which allowed for an easy user-experience</p>
-                            <h3>Tools: React, Next.js, TypeScript, Java, Springboot, SQL  </h3>
-                        </div>
-                    </div> */}
+                    
                     </ScrollShadow>
-                    {/* Add more projects as needed */}
+                    
                 </div>
+                <button onClick={() => router.push('/addProject')} className="bg-blue-500 text-white p-2 rounded mt-4">
+                    Add New Project
+                </button>
                
             </div>
         </div>
