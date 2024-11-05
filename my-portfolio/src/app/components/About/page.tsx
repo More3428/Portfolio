@@ -37,7 +37,7 @@ const About = () => {
             As a first-generation college graduate, I carry a deep-seated passion for continuous learning and relentless innovation. I hold a degree in Computer Science, specializing in Software Engineering.
           </p>
           <p className="pb-4">
-            My skills encompass web development, data management, and UI/UX design. I have experience as a Data Analyst, where I built and managed data tables using Microsoft Power Query.
+            My skills involve working on front & back-end development. I am knowledgeabe on software project development, such as SDLC methodology.  
           </p>
           <p className="pb-1">
             Additionally, I interned as a Full-Stack Developer, focusing on front-end development and RESTful APIs. As a recent graduate, I am eager to start my career in the industry and am continuously honing my skills as a software engineer.
