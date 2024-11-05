@@ -1,18 +1,40 @@
 "use client"
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useProjects } from './ProjectsContext';
+
+type Project = {
+    title: string;
+    description: string;
+    image?: string;
+    tools: string;
+    githubLink?: string;
+    learnMoreLink?: string;
+};
 
 const Projects = () => {
-    const { projects } = useProjects();
-    console.log("Rendered Projects:", projects);
+    const [projects, setProjects ] = useState<Project[]>([]);
     const router = useRouter();
-    const projectListRef = useRef(null);
-    const topBarRef = useRef(null);
-    const bottomBarRef = useRef(null); 
+
+    // Fetch projects from the API when the component mounts
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const response = await fetch('/api/projects');
+                if (response.ok) {
+                    const data = await response.json();
+                    setProjects(data);
+                } else {
+                    console.error("Failed to fetch projects");
+                }
+            } catch (error) {
+                console.error("Error fetching projects:", error);
+            }
+        };
+
+        fetchProjects();
+    }, []);
 
     return (
         
