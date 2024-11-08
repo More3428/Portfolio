@@ -1,17 +1,15 @@
 "use client"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import { ProjectsProvider } from "./components/Projects/ProjectsContext"
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <ProjectsProvider>
+    <html lang="en">   
       <body>
-        
         <main>
           {children}
           <SpeedInsights />
@@ -19,7 +17,6 @@ export default function RootLayout({
           </main>
         
       </body>
-      </ProjectsProvider>
     </html>
   )
 }

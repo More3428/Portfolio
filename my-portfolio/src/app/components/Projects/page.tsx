@@ -97,15 +97,42 @@ const Projects = () => {
                 
                 <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
                     <ScrollShadow hideScrollBar>
-                    {/* Example Project Cards */}
                     {projects.map((project, index) => (
                     <div key={index} className="bg-slate-900 border border-slate-500 p-4 rounded-lg mb-4">
                         <h2> {project.title}</h2>
                         <p>{project.description}</p>
+
                         {project.image && (
-                            <img src={project.image} alt={project.title}  />
+                            <img src={project.image} alt={`${project.title} image`} className='w-48 h-48 object-cover'  />
                         )}
-                        <p className="text-gray-400 text-sm">Tools: {project.tools}</p>
+
+                        <p className="text-gray-400 text-sm">Tools: {project.tools} </p>
+
+                        {project.githubLink && (
+                            <p>
+                                <a
+                                    href={project.githubLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-400 underline hover:text-blue-700"
+                                >
+                                Github
+                                </a>
+                            </p>
+                        )}
+
+                        {project.learnMoreLink && (
+                            <p>
+                                <a
+                                    href={project.learnMoreLink}
+                                    target ="_blank"
+                                    rel="noopener noreferrer"
+                                    className='text-blue-400 underline hover:text-blue-700'
+                                >
+
+                                </a>
+                            </p>
+                        )}
                     </div>
                 ))}
 

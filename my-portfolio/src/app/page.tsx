@@ -6,12 +6,12 @@ import About from './components/About/page';
 import Contact from './components/Contact/page';
 import Navbar from './components/Navbar/page';
 import Projects from './components/Projects/page';
-import { ProjectsProvider } from './components/Projects/ProjectsContext';
+
 
 
 export default function Home() {
   return (
-    <ProjectsProvider>
+    
     <div className="min-h-screen flex flex-col items-center justify-start w-full py-2 bg-slate-800 overflow-auto">
       
 
@@ -31,6 +31,6 @@ export default function Home() {
         </section>
       </div>
     </div>
-    </ProjectsProvider>
+    
   );
 }
