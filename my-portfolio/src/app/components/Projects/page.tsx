@@ -97,15 +97,55 @@ const Projects = () => {
                 
                 <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
                     <ScrollShadow hideScrollBar>
-                    {/* Example Project Cards */}
+                       
                     {projects.map((project, index) => (
-                    <div key={index} className="bg-slate-900 border border-slate-500 p-4 rounded-lg mb-4">
-                        <h2> {project.title}</h2>
-                        <p>{project.description}</p>
-                        {project.image && (
-                            <img src={project.image} alt={project.title}  />
-                        )}
-                        <p className="text-gray-400 text-sm">Tools: {project.tools}</p>
+                    <div key={index} className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
+                        
+                        <div className='p-2'>
+                            {project.image && (
+                                <img 
+                                    src={project.image} 
+                                    alt={`${project.title} image`} 
+                                    className='w-40 h-auto max-w-full max-h-40 rounded drop-shadow-md'  />
+                            )}  
+
+                        
+                        <div className='flex space-x-4 pb-2'>
+                                {project.githubLink && (
+                                    <p className="underline font-mono">
+                                        <a
+                                            href={project.githubLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-blue-400 underline hover:text-blue-700"
+                                        >
+                                        Github
+                                        </a>
+                                    </p>
+                            )}
+
+                            {project.learnMoreLink && (
+                                <p className="underline font-mono">
+                                    <a
+                                        href={project.learnMoreLink}
+                                        target ="_blank"
+                                        rel="noopener noreferrer"
+                                        className='text-blue-400 underline hover:text-blue-700'
+                                    >
+                                    Learn More
+                                    </a>
+                                </p>
+                            )}
+
+                        </div>
+                        </div>
+
+                        <div font-mono text-left>
+                        <h2 className="font-custom2 text-3xl underline decoration-1"> {project.title}</h2>
+                        <p className="text-sm">{project.description}</p>
+                        <h3 className="text-gray-400 text-sm">Tools: {project.tools} </h3>
+                        </div>
+
                     </div>
                 ))}
 
@@ -113,9 +153,10 @@ const Projects = () => {
                     </ScrollShadow>
                     
                 </div>
-                <button onClick={() => router.push('/addProject')} className="bg-blue-500 text-white p-2 rounded mt-4">
-                    Add New Project
-                </button>
+                {/*Uncomment when ready to add another Project */}
+                    {/* <button onClick={() => router.push('/addProject')} className="bg-blue-500 text-white p-2 rounded mt-4">
+                        Add New Project
+                    </button> */}
                
             </div>
         </div>
