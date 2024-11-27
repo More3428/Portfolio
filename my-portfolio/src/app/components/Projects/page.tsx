@@ -140,7 +140,7 @@ const Projects = () => {
                         </div>
                         </div>
 
-                        <div font-mono text-left>
+                        <div >
                         <h2 className="font-custom2 text-3xl underline decoration-1"> {project.title}</h2>
                         <p className="text-sm">{project.description}</p>
                         <h3 className="text-gray-400 text-sm">Tools: {project.tools} </h3>
