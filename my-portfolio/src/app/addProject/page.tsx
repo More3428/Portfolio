@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { addProject } from '../components/FireBaseDB/firestore';
 
 
 const AddProject = () => {
@@ -23,16 +24,17 @@ const AddProject = () => {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
-        const response = await fetch('/api/projects', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newProject)
-
+        await addProject(newProject);
+        setNewProject({
+            title: "",
+            description: "",
+            image: "",
+            tools: "",
+            githubLink: "",
+            learnMoreLink: "",
         });
 
-        if (response.ok) {
+        if (Response) {
             router.push('/');
         } else {
             console.error('Failed to add Project');
