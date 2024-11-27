@@ -1,4 +1,4 @@
-
+"use client"
 import { useEffect, useRef, useState } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
