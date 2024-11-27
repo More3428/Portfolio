@@ -3,33 +3,31 @@ import { useEffect, useRef, useState } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import { useRouter } from 'next/navigation';
+import { getProjects } from "../FireBaseDB/firestore"; 
 
-type Project = {
+
+interface Project {
+    id: string; 
     title: string;
     description: string;
     image?: string;
-    tools: string;
+    tools?: string;
     githubLink?: string;
     learnMoreLink?: string;
-};
+}
+
+
 
 const Projects = () => {
     const [projects, setProjects ] = useState<Project[]>([]);
-    const router = useRouter();
+    const router = useRouter(); 
 
     // Fetch projects from the API when the component mounts
     useEffect(() => {
         const fetchProjects = async () => {
-            try {
-                const response = await fetch('/api/projects');
-                if (response.ok) {
-                    const data = await response.json();
-                    setProjects(data);
-                } else {
-                    console.error("Failed to fetch projects");
-                }
-            } catch (error) {
-                console.error("Error fetching projects:", error);
+            const data: Project[] | undefined = await getProjects();
+            if (data){
+                setProjects(data);
             }
         };
 
@@ -98,8 +96,8 @@ const Projects = () => {
                 <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
                     <ScrollShadow hideScrollBar>
                        
-                    {projects.map((project, index) => (
-                    <div key={index} className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
+                    {projects.map((project) => (
+                    <div key={project.id} className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
                         
                         <div className='p-2'>
                             {project.image && (
@@ -140,7 +138,7 @@ const Projects = () => {
                         </div>
                         </div>
 
-                        <div font-mono text-left>
+                        <div >
                         <h2 className="font-custom2 text-3xl underline decoration-1"> {project.title}</h2>
                         <p className="text-sm">{project.description}</p>
                         <h3 className="text-gray-400 text-sm">Tools: {project.tools} </h3>
