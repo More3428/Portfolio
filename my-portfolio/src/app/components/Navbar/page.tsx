@@ -1,6 +1,9 @@
+import Link from "next/link";
 
 const Navbar = () => {
+  
   return (
+    
     
     <nav className="w-full max-w-xl mx-auto px-4 sm:px-6 lg:px-8 bg-gray-900 rounded-lg shadow-lg">
       <ul className="flex justify-center space-x-4 ">
@@ -20,6 +23,14 @@ const Navbar = () => {
           <a href="#contact" className="text-lg font-semibold text-white hover:text-blue-300" >
             Contact
           </a>
+
+        </li>
+        <li>
+          <Link href = "/Blog">
+          <p className="text-lg font-semibold text-white hover:text-blue-300" >
+            Blog
+          </p>
+          </Link>
 
         </li>
       </ul>
