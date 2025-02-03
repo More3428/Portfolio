@@ -1,14 +1,31 @@
+'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import FlipCard from '../components/FlipCard/page'
+import { collection, getDocs } from "../components/FireBaseDB/firestore"
+import { db } from "../components/FireBaseDB/firebaseConfig"
+import "../Gallery.css"
+import ImageUpload from '../components/GalleryUpload/page'
 
-const Blog = () => {
+interface GalleryItem {
+  imageUrl: string;
+  description: string;
+}
+
+const Blog: React.FC = () => {
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+    
+  
+
 
  
 
   return (
-    <div>
-        <h1>This is a page dedicated to my hobbies and ambitions and other things that may or may not have to do with CS.</h1>
-        <h2>Work in Process Updated 1/21/25. </h2>
+    <div className="gallery">
+      
+      {galleryItems.map((item, index) => (
+        <FlipCard key={index} image={item.imageUrl} description={item.description} />
+      ))}
     </div>
   )
 }

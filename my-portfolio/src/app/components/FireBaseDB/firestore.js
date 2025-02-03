@@ -35,3 +35,5 @@ export const deleteProject = async (id) => {
         console.error("Error deleting project:", error);
     }
 };
+
+export { collection, getDocs };
