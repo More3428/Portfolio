@@ -36,4 +36,41 @@ export const deleteProject = async (id) => {
     }
 };
 
+//Upload To Gallery
+export const addToGallery = async(gallery) => {
+    try {
+        const docRef = await addDoc(collection(db, "gallery"), gallery);
+        console.log("Project added to Gallery with ID:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding to Gallery:", error);
+    }
+};
+
+//Get all Projects from Gallery
+export const getGallery = async() => {
+    try {
+        const querySnapshot = await getDocs(collection(db, "gallery"));
+        const gallery = [];
+        querySnapshot.forEach((doc) => {
+            gallery.push({ id:  doc.id, ...doc.data() });
+        });
+        return gallery;
+    } catch(error) {
+        console.error("Error getting gallery:", error); 
+    }
+};
+
+//Delete Project from Gallery
+export const deleteGalleryProject = async (id) => {
+    try {
+        await deleteDoc(doc(db, "gallery", id)); 
+        console.log("Gallery project deleted with ID:", id);
+    } catch(error) {
+        console.error("Failed to delete gallery project:", error); 
+    }
+}
+
+
+
 export { collection, getDocs };

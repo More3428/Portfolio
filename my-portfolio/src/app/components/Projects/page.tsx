@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
-import { useRouter } from 'next/navigation';
 import { getProjects } from "../FireBaseDB/firestore"; 
 
 
@@ -20,7 +19,6 @@ interface Project {
 
 const Projects = () => {
     const [projects, setProjects ] = useState<Project[]>([]);
-    const router = useRouter(); 
 
     // Fetch projects from the API when the component mounts
     useEffect(() => {
@@ -151,7 +149,7 @@ const Projects = () => {
                     </ScrollShadow>
                     
                 </div>
-                {/*Uncomment when ready to add another Project */}
+                {/* Uncomment when ready to add another Project */}
                     {/* <button onClick={() => router.push('/addProject')} className="bg-blue-500 text-white p-2 rounded mt-4">
                         Add New Project
                     </button> */}

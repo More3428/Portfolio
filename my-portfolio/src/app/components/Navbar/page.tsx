@@ -26,7 +26,7 @@ const Navbar = () => {
 
         </li>
         <li>
-          <Link href = "/Blog">
+          <Link href = "./components/Blog">
           <p className="text-lg font-semibold text-white hover:text-blue-300" >
             Blog
           </p>
