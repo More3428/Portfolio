@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import FlipCard from '../FlipCard/page'
 import { getGallery } from "../FireBaseDB/firestore"
 import "../Gallery.css"
-import { Timestamp } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import Navbar from '../Navbar/page'
 
@@ -15,7 +14,7 @@ interface GalleryItem {
   title: string; 
   imageUrl: string;
   description: string;
-  createdAt: Timestamp; 
+  createdAt: Date; 
 }
 
 const Blog: React.FC = () => {
@@ -26,7 +25,11 @@ const Blog: React.FC = () => {
           const fetchProjects = async () => {
               const data: GalleryItem[] | undefined = await getGallery();
               if (data){
-                  setGalleryItems(data);
+                const formattedData = data.map(item => ({
+                  ...item, 
+                  createdAt: item.createdAt ? item.createdAt.toDate(): new Date(), 
+                }));
+                  setGalleryItems(formattedData);
               }
           };
           fetchProjects();
@@ -44,7 +47,7 @@ const Blog: React.FC = () => {
     <div className="gallery">
       
       {galleryItems.map((item, index) => (
-        <FlipCard key={index} title ={item.title} imageUrl={item.imageUrl} description={item.description}  />
+        <FlipCard key={index} title ={item.title} imageUrl={item.imageUrl} description={item.description} date ={item.createdAt.toLocaleDateString()}   />
       ))}
 
       <button onClick={() => router.push('/GalleryUpload')} className="bg-blue-500 text-white p-2 rounded mt-4">

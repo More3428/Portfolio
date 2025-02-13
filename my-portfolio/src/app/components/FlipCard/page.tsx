@@ -6,9 +6,10 @@ interface FlipCardProps {
     title: string;
     imageUrl: string;
     description: string;
+    date: string;
 }
 
-const FlipCard: React.FC<FlipCardProps> = ({title, imageUrl, description}) => {
+const FlipCard: React.FC<FlipCardProps> = ({title, imageUrl, description, date}) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const handleFlip = () => {
@@ -22,8 +23,15 @@ const FlipCard: React.FC<FlipCardProps> = ({title, imageUrl, description}) => {
           <h1>{title}</h1>
           <img src={imageUrl} alt="Gallery Item" />
         </div>
-        <div className="flip-card-back">
-          <p>{description}</p>
+        <div className="flip-card-back flex-col">
+          <div>
+            <p>{description}</p>
+          </div>
+          <div>
+            <p>{date}</p>
+          </div>
+          
+          
         </div>
       </div>
     </div>

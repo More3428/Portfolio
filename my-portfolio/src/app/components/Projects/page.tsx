@@ -1,8 +1,9 @@
-"use client"
+'use client'
 import { useEffect, useRef, useState } from 'react';
 import Buttons from '../Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import { getProjects } from "../FireBaseDB/firestore"; 
+import { useRouter } from 'next/navigation';
 
 
 interface Project {
@@ -18,6 +19,7 @@ interface Project {
 
 
 const Projects = () => {
+    const router = useRouter();
     const [projects, setProjects ] = useState<Project[]>([]);
 
     // Fetch projects from the API when the component mounts
@@ -150,9 +152,9 @@ const Projects = () => {
                     
                 </div>
                 {/* Uncomment when ready to add another Project */}
-                    {/* <button onClick={() => router.push('/addProject')} className="bg-blue-500 text-white p-2 rounded mt-4">
+                    <button onClick={() => router.push('/ProjectUpload')} className="bg-blue-500 text-white p-2 rounded mt-4">
                         Add New Project
-                    </button> */}
+                    </button>
                
             </div>
         </div>
