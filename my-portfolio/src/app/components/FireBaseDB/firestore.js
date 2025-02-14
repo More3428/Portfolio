@@ -83,6 +83,17 @@ export const deleteGalleryProject = async (id) => {
     }
 }
 
+//Edit Gallery Project
+export const editGalleryItem = async (id, updatedData) => {
+    try {
+        const galleryRef = doc(db, "gallery", id);
+        await updateDoc(galleryRef, updatedData);
+        console.log("Gallery item updated with ID:", id);
+    } catch (error) {
+        console.error("Error updating gallery project:", error); 
+    }
+};
+
 
 
 export { collection, getDocs };

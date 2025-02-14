@@ -5,19 +5,19 @@ export interface Project {
     id: string;
     title: string;
     description: string;
-    image: string;
-    tools?: string[];
-    githubLink: string;
-    learnMoreLink: string;
+    image?: string;
+    tools?: string;
+    githubLink?: string;
+    learnMoreLink?: string;
 }
 
 export interface ProjectUpdateData {
     title: string;
     description: string;
-    image: string;
-    tools: string[];
-    githubLink: string;
-    learnMoreLink: string;
+    image?: string;
+    tools?: string;
+    githubLink?: string;
+    learnMoreLink?: string;
 }
 
 interface EditProjectFormProps {
@@ -29,8 +29,8 @@ interface EditProjectFormProps {
 const EditProjectForm: React.FC<EditProjectFormProps> = ({ project, onSave, onClose }) => {
     const [title, setTitle] = useState(project.title);
     const [description, setDescription] = useState(project.description);
-    const [image, setImage] = useState(project.image);
-    const [tools, setTools] = useState(project.tools ? project.tools.join(",") : "");
+    const [image, setImage] = useState(project.image || "");
+    const [tools, setTools] = useState(project.tools || "");
     const [githubLink, setGithubLink] = useState(project.githubLink);
     const [learnMoreLink, setLearnMoreLink] = useState(project.learnMoreLink);
 
@@ -40,7 +40,7 @@ const EditProjectForm: React.FC<EditProjectFormProps> = ({ project, onSave, onCl
             title,
             description,
             image,
-            tools: tools.split(","),
+            tools,
             githubLink,
             learnMoreLink,
         };

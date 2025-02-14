@@ -6,11 +6,13 @@ import { getGallery } from "../FireBaseDB/firestore"
 import "../Gallery.css"
 import { useRouter } from "next/navigation";
 import Navbar from '../Navbar/page'
+import { Timestamp } from 'firebase/firestore'
 
 
 
 
 interface GalleryItem {
+  id: string;
   title: string; 
   imageUrl: string;
   description: string;
@@ -27,7 +29,8 @@ const Blog: React.FC = () => {
               if (data){
                 const formattedData = data.map(item => ({
                   ...item, 
-                  createdAt: item.createdAt ? item.createdAt.toDate(): new Date(), 
+                  createdAt: item.createdAt instanceof Timestamp
+                    ? item.createdAt.toDate(): new Date(), 
                 }));
                   setGalleryItems(formattedData);
               }

@@ -13,7 +13,7 @@ interface Projects {
     title: string;
     description: string;
     image?: string;
-    tools?: string[] | string;
+    tools?: string;
     githubLink?: string;
     learnMoreLink?: string;
 }
@@ -87,12 +87,7 @@ const AddProject = () => {
     const openEditModal = (project: Projects) => {
         setProjectToEdit({
             ...project,
-            image: project.image || "",
-            tools: Array.isArray(project.tools) 
-                ? project.tools // Already an array, use it as is
-                : typeof project.tools === "string" 
-                ? project.tools.split(",").map(tool => tool.trim()) // Convert string to array
-                : [], // Default to empty array if undefined or not a string
+            tools: project.tools ?? "",
         });
     
         setIsEditModalOpen(true);
@@ -118,13 +113,6 @@ const AddProject = () => {
         }
     };
 
-     // Handle input changes for the edit form
-     const handleEditChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        if (projectToEdit) {
-            setProjectToEdit({ ...projectToEdit, [name]: value });
-        }
-    };
 
     return (
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-slate-800">

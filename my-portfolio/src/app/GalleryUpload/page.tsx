@@ -1,10 +1,26 @@
 'use client'
-import React, { useState } from "react";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { addToGallery } from "../components/FireBaseDB/firestore";
+import React, { useEffect, useState } from "react";
+import { addToGallery, deleteGalleryProject, editGalleryItem, getGallery } from "../components/FireBaseDB/firestore";
 import { useRouter } from "next/navigation";
 import { Timestamp } from "firebase/firestore";
-import { error } from "console";
+import { ScrollShadow } from "@nextui-org/scroll-shadow";
+import GalleryEditForm from "../GalleryEditForm/page";
+
+
+export interface GalleryItem {
+    id: string;
+    title: string; 
+    imageUrl?: string;
+    description: string;
+    createdAt: Date; 
+  }
+
+export interface GalleryUpdateData {
+    title: string;
+    description: string;
+    imageUrl?: string;
+}
+
 
 const AddToGallery = () => {
     const [newGalleryProject, setNewGalleryProject] = useState({
@@ -16,12 +32,36 @@ const AddToGallery = () => {
 
     const [errors, setErrors] = useState<{ title?: string; description?: string; imageUrl?: string }>({});
     const router = useRouter(); 
+    const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+    const [galleryItemToEdit, setGalleryItemToEdit] = useState<GalleryItem | null>(null);
+
+    const openEditModal = (item: GalleryItem) => {
+        setGalleryItemToEdit(item);
+        setIsEditModalOpen(true); 
+    }
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setNewGalleryProject({ ...newGalleryProject, [name]: value });
         setErrors({ ...errors, [name]: ""});
     };
+
+    const handleEditSubmit = async (id: string, updatedData: GalleryUpdateData) => {
+        try {
+            await editGalleryItem(id, updatedData);
+
+            setGalleryItems(prevItems =>
+                prevItems.map(item => item.id === id ? { ...item, ...updatedData} : item)
+            );
+
+            setIsEditModalOpen(false);
+            setGalleryItemToEdit(null);
+        } catch (error) {
+            console.error("Error updating gallery project: ", error); 
+        }
+    }
 
     // Validate fields before submission
     const validateFields = () => {
@@ -34,6 +74,21 @@ const AddToGallery = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0; // Return true if no errors
     };
+
+     useEffect(() => {
+              const fetchProjects = async () => {
+                  const data: GalleryItem[] | undefined = await getGallery();
+                  if (data){
+                    const formattedData = data.map(item => ({
+                      ...item, 
+                      createdAt: item.createdAt instanceof Timestamp
+                       ? item.createdAt.toDate(): new Date(), 
+                    }));
+                      setGalleryItems(formattedData);
+                  }
+              };
+              fetchProjects();
+          }, []);
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
             e.preventDefault();
@@ -57,15 +112,26 @@ const AddToGallery = () => {
                 console.error('Failed to add Gallery Project');
             }
         };
+
+        const handelDelete = async (id: string) => {
+                try {
+                    await deleteGalleryProject(id);
+        
+                    setGalleryItems(prevProjects => prevProjects.filter(newGalleryProject => newGalleryProject.id !== id));
+                } catch(error) {
+                    console.error("Error deleting project:", error);
+                }
+            };
         return (
-            <div className='min-h-screen bg-slate-800 flex flex-col items-center justify-center '>
-            <div className="container mx-auto p-4 bg-slate-800">
-                <h1 className="text-2xl font-bold mb-4 text-white underline">Add New Project</h1>
+            <div className='min-h-screen flex flex-col md:flex-row items-center justify-center bg-slate-800'>
+            <div className="md:w-1/2 flex flex-col p-4">
+                <h1 className="text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl text-white font-custom3 relative z-10 pb-4 shadow-xl">Add New Gallery Project</h1>
+                <div className="bg-slate-900 text-center text-sm font-medium pb-4 tracking-tight font-serif border border-slate-500 p-4 rounded">
                 <form onSubmit={handleSubmit}>
-                    <div className='space-y-12'>
-                        <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
+                    <div className='space-y-4'>
+                        <div>
                             <div className='sm:col-span-4'>
-                            <input name="title" placeholder="Title" value={newGalleryProject.title} onChange={handleChange} className="w-64 rounded text-m font-medium text-gray-900 p-2  " />
+                            <input name="title" placeholder="Title" value={newGalleryProject.title} onChange={handleChange} className="mb-2 p-2 w-1/2 rounded" />
                             </div>
                         </div>   
                         
@@ -76,7 +142,7 @@ const AddToGallery = () => {
                                 value={newGalleryProject.description} 
                                 onChange={handleChange}
                                 rows = {4} 
-                                className="block w-1/2 rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-900 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-m p-2" />
+                                className="mb-2 p-2 w-1/2 rounded" />
                         </div>
                         <div>
                             <input 
@@ -86,14 +152,65 @@ const AddToGallery = () => {
                                 onChange={handleChange} 
                                 className="mb-2 p-2 w-1/2 rounded" />
                         </div>
-                        <div>
-                            <input name="tools" placeholder="Tools" value={newGalleryProject.createdAt.toString()} onChange={handleChange} className="mb-2 p-2 w-1/2 rounded" />
-                        </div>
+                        
                         <button type="submit" className="bg-blue-500 text-white p-2 rounded mt-2">Add Project </button>
                     </div>    
                 </form>
+                </div>
                 
             </div>
+            <div className="w-full md:w-1/2 flex flex-col items-center justify-center mb-8 md:mb-0">
+            <h1 className="tracking-tight text-white text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl font-custom3 relative p-4">Edit or Delete Gallery Projects</h1>
+            <div className="text-white p-4 rounded-lg flex-grow w-full h-[40rem] overflow-auto custom-scrollbar ">
+                    <ScrollShadow hideScrollBar>
+                       
+                    {galleryItems.map((item, index) => (
+                    <div key={index} className="grid grid-cols-[auto,1fr] gap-4 bg-slate-900 border border-slate-500 p-2 mb-4 rounded-lg">
+                        
+                        <div className='p-2'>
+                            {item.imageUrl && (
+                                <img 
+                                    src={item.imageUrl} 
+                                    alt={`${item.title} image`} 
+                                    className='w-40 h-auto max-w-full max-h-40 rounded drop-shadow-md'  />
+                            )}  
+                        </div>
+
+                        <div >
+                        <h2 className="font-custom2 text-3xl underline decoration-1"> {item.title}</h2>
+                        <p className="text-sm">{item.description}</p>
+                        <h3 className="text-gray-400 text-sm">Date: {item.createdAt.toLocaleDateString()} </h3>
+                        <div className='flex p-2'>
+                            <div className='p-2'>
+                            <button onClick={() => openEditModal(item)}
+                                    className="bg-green-600 text-white p-2 rounded">
+                                         Edit
+                                         </button>
+                            </div>
+                            <div className='p-2'>
+                                <button onClick={()=> handelDelete(item.id)} className='bg-red-500 text-white p-2 rounded'>
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                ))}
+
+                    
+                    </ScrollShadow>
+                    
+                </div>
+        </div>
+        {isEditModalOpen && galleryItemToEdit && (
+        <GalleryEditForm 
+            item={galleryItemToEdit} 
+            onSave={handleEditSubmit}
+            onClose={() => setIsEditModalOpen(false)}
+        />
+        )}
+        
             </div>
         );
     };
