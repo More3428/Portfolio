@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { addToGallery, deleteGalleryProject, editGalleryItem, getGallery } from "../components/FireBaseDB/firestore";
+import { addToGallery, deleteGalleryProject, editGalleryItem, getGallery } from "../FireBaseDB/firestore";
 import { useRouter } from "next/navigation";
 import { Timestamp } from "firebase/firestore";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";

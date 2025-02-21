@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react';
-import Buttons from '../Buttons/page';
+import Buttons from '@/components/Buttons/page';
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import { getProjects } from "../FireBaseDB/firestore"; 
 import { useRouter } from 'next/navigation';

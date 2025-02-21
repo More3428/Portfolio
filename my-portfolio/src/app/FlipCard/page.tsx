@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import "../FlipCard.css"
+import "../FlipCard.css"; 
 
 interface FlipCardProps {
     title: string;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../Modal/page";
+import Modal from "@/components/Modal/page";
 
 export interface Project {
     id: string;

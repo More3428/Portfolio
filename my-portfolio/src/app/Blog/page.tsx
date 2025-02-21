@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import FlipCard from '../FlipCard/page'
+import FlipCard from "@/app/FlipCard/page";
 import { getGallery } from "../FireBaseDB/firestore"
-import "../Gallery.css"
+
 import { useRouter } from "next/navigation";
-import Navbar from '../Navbar/page'
+import Navbar from '@/components/Navbar/page'
 import { Timestamp } from 'firebase/firestore'
 
 

@@ -14,24 +14,29 @@ const Navbar = () => {
           </a>
         </li>
         <li>
-          <a href="#projects" className="text-lg font-semibold text-white hover:text-blue-300" >
+          <a href="/#projects" className="text-lg font-semibold text-white hover:text-blue-300" >
             Projects
           </a>
 
         </li>
         <li>
-          <a href="#contact" className="text-lg font-semibold text-white hover:text-blue-300" >
+          <a href="/#contact" className="text-lg font-semibold text-white hover:text-blue-300">
             Contact
           </a>
 
         </li>
         <li>
-          <Link href = "./components/Blog">
+          <Link href = "/Blog" replace>
           <p className="text-lg font-semibold text-white hover:text-blue-300" >
             Blog
           </p>
           </Link>
 
+        </li>
+        <li>
+          <Link href = "/Login" replace>
+          <img src="/assets/editlogo1.png" alt="edit" className="w-6 h-6  drop-shadow-m"/>
+          </Link>
         </li>
       </ul>
     </nav>

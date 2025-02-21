@@ -1,10 +1,10 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import { addProject, deleteProject, editProject } from '../components/FireBaseDB/firestore';
-import { getProjects } from "../components/FireBaseDB/firestore"; 
+import { addProject, deleteProject, editProject } from '../FireBaseDB/firestore';
+import { getProjects } from "../FireBaseDB/firestore"; 
 import { ScrollShadow } from '@nextui-org/scroll-shadow';
-import EditProjectForm, { ProjectUpdateData } from '../components/EditForm/page';
+import EditProjectForm, { ProjectUpdateData } from '../EditForm/page';
 
 
 
