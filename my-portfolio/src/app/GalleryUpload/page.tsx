@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Timestamp } from "firebase/firestore";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import GalleryEditForm from "../GalleryEditForm/page";
+import { useAuth } from "../AuthContext";
 
 
 export interface GalleryItem {
@@ -35,6 +36,7 @@ const AddToGallery = () => {
     const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [galleryItemToEdit, setGalleryItemToEdit] = useState<GalleryItem | null>(null);
+    
 
     const openEditModal = (item: GalleryItem) => {
         setGalleryItemToEdit(item);

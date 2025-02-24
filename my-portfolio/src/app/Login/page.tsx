@@ -3,16 +3,20 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
 import { auth } from '../FireBaseDB/firebaseConfig';
+import { useRouter } from 'next/navigation'; 
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState(""); 
+    const router = useRouter();
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
+
             await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in successfully");
+            router.push('/');
             
         } catch (error) {
             console.error("Failed user login:", error); 

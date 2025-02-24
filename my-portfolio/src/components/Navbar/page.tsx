@@ -1,6 +1,8 @@
+import { useAuth } from "@/app/AuthContext";
 import Link from "next/link";
 
 const Navbar = () => {
+  const { user, logout } =  useAuth(); 
   
   return (
     
@@ -34,9 +36,15 @@ const Navbar = () => {
 
         </li>
         <li>
-          <Link href = "/Login" replace>
-          <img src="/assets/editlogo1.png" alt="edit" className="w-6 h-6  drop-shadow-m"/>
-          </Link>
+          {user ? (
+            <button onClick={logout} className="bg-red-500 px-4 py-2 rounded">
+              Logout
+            </button>
+          ) : (
+            <a href="/Login" className="bg-black">
+              <img src="/assets/editlogo1.png" alt="edit" className="w-6 h-6  drop-shadow-m"/>
+            </a>
+          )}
         </li>
       </ul>
     </nav>
