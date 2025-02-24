@@ -50,7 +50,7 @@ const EditProjectForm: React.FC<EditProjectFormProps> = ({ project, onSave, onCl
     return (
         <Modal isOpen={true} onClose={onClose}>
             <h2>Edit Project</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md flex flex-col space-y-4'>
                 <input
                     type="text"
                     value={title}
@@ -86,8 +86,8 @@ const EditProjectForm: React.FC<EditProjectFormProps> = ({ project, onSave, onCl
                     onChange={(e) => setLearnMoreLink(e.target.value)}
                     placeholder="Learn More Link"
                 />
-                <button type="submit">Save Changes</button>
-                <button type="button" onClick={onClose} className="bg-gray-500 text-white p-2 rounded">Cancel</button>
+                <button type="submit" className="text-white bg-green-600">Save Changes</button>
+                <button type="button" onClick={onClose} className="bg-red-600 text-white p-2 rounded">Cancel</button>
             </form>
         </Modal>
     );

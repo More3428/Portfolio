@@ -35,7 +35,7 @@ const styles = {
         zIndex: 1000,
     },
     modal: {
-        backgroundColor: "#fff",
+        backgroundColor: "##181a52",
         padding: "20px",
         borderRadius: "8px",
         width: "400px",
