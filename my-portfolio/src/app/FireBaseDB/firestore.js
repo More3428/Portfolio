@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig";
 
 // Add a new project to Firestore
@@ -36,6 +36,18 @@ export const deleteProject = async (id) => {
     }
 };
 
+//Edit Project
+export const editProject = async (id, updatedData) => {
+    try {
+        const projectRef = doc(db, "projects", id);
+        await updateDoc(projectRef, updatedData);
+        console.log("Projects updated with ID:", id);
+    } catch (error) {
+        console.error("Error updating project:", error);
+    }
+};
+
+
 //Upload To Gallery
 export const addToGallery = async(gallery) => {
     try {
@@ -70,6 +82,17 @@ export const deleteGalleryProject = async (id) => {
         console.error("Failed to delete gallery project:", error); 
     }
 }
+
+//Edit Gallery Project
+export const editGalleryItem = async (id, updatedData) => {
+    try {
+        const galleryRef = doc(db, "gallery", id);
+        await updateDoc(galleryRef, updatedData);
+        console.log("Gallery item updated with ID:", id);
+    } catch (error) {
+        console.error("Error updating gallery project:", error); 
+    }
+};
 
 
 
