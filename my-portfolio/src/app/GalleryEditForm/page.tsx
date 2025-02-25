@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import { GalleryItem, GalleryUpdateData } from '../GalleryUpload/page';
 import ProtectedRoute from '@/components/ProtectedRoute';

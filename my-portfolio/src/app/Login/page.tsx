@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
 import { auth } from '../FireBaseDB/firebaseConfig';
 import { useRouter } from 'next/navigation'; 
+import Navbar from '@/components/Navbar/page';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -24,7 +25,12 @@ const Login = () => {
     };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-900">
+    
+    <div className="flex flex-col min-h-screen items-center justify-center bg-gray-900">
+        <div className='p-4'>
+            <Navbar />
+        </div>
+        
         
     <form onSubmit = {handleSubmit} className='bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md flex flex-col space-y-4'>
         <h3 className='text-white text-center'>Login</h3>
