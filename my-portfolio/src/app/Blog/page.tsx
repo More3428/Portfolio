@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import FlipCard from "@/app/FlipCard/page";
+import FlipCard from "@/components/FlipCard/page";
 import { getGallery } from "../FireBaseDB/firestore"
 
 import { useRouter } from "next/navigation";

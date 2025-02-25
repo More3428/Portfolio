@@ -4,7 +4,7 @@ import { addToGallery, deleteGalleryProject, editGalleryItem, getGallery } from 
 import { useRouter } from "next/navigation";
 import { Timestamp } from "firebase/firestore";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
-import GalleryEditForm from "../GalleryEditForm/page";
+import GalleryEditForm from "../../components/GalleryEditForm/page";
 import { useAuth } from "../AuthContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import Modal from "@/components/Modal/page";

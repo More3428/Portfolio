@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import { GalleryItem, GalleryUpdateData } from '../GalleryUpload/page';
+import { GalleryItem, GalleryUpdateData } from '../../app/GalleryUpload/page';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import Modal from '@/components/Modal/page';
 
