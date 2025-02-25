@@ -6,6 +6,9 @@ import { Timestamp } from "firebase/firestore";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import GalleryEditForm from "../GalleryEditForm/page";
 import { useAuth } from "../AuthContext";
+import ProtectedRoute from "@/components/ProtectedRoute";
+import Modal from "@/components/Modal/page";
+import Navbar from "@/components/Navbar/page";
 
 
 export interface GalleryItem {
@@ -109,7 +112,7 @@ const AddToGallery = () => {
                 });
     
             
-                router.push('./components/Blog');
+                router.push('/Blog');
             } catch(error) {
                 console.error('Failed to add Gallery Project');
             }
@@ -125,6 +128,10 @@ const AddToGallery = () => {
                 }
             };
         return (
+            <ProtectedRoute>
+                <div className="bg-slate-800">
+                    <Navbar />
+                </div>
             <div className='min-h-screen flex flex-col md:flex-row items-center justify-center bg-slate-800'>
             <div className="md:w-1/2 flex flex-col p-4">
                 <h1 className="text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl text-white font-custom3 relative z-10 pb-4 shadow-xl">Add New Gallery Project</h1>
@@ -158,6 +165,7 @@ const AddToGallery = () => {
                         <button type="submit" className="bg-blue-500 text-white p-2 rounded mt-2">Add Project </button>
                     </div>    
                 </form>
+                
                 </div>
                 
             </div>
@@ -214,6 +222,7 @@ const AddToGallery = () => {
         )}
         
             </div>
+            </ProtectedRoute>
         );
     };
     

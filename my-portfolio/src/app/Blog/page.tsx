@@ -49,14 +49,14 @@ const Blog: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-start w-full py-2 bg-slate-800 overflow-auto">
       <Navbar />
     
-    <div className="gallery">
+    <div className="gallery-container flex flex-wrap justify-center gap-6 p-6">
       
       {galleryItems.map((item, index) => (
         <FlipCard key={index} title ={item.title} imageUrl={item.imageUrl} description={item.description} date ={item.createdAt.toLocaleDateString()}   />
       ))}
       
       {user && (
-        <button onClick={() => router.push('/GalleryUpload')} className="bg-blue-500 text-white p-2 rounded mt-4">
+        <button onClick={() => router.push('/GalleryUpload')} className="bg-green-600 text-white p-2 max-h-12 rounded ">
                         Add New Gallery Project
                     </button> 
       )}

@@ -5,6 +5,8 @@ import { addProject, deleteProject, editProject } from '../FireBaseDB/firestore'
 import { getProjects } from "../FireBaseDB/firestore"; 
 import { ScrollShadow } from '@nextui-org/scroll-shadow';
 import EditProjectForm, { ProjectUpdateData } from '../EditForm/page';
+import Navbar from '@/components/Navbar/page';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 
 
@@ -115,7 +117,12 @@ const AddProject = () => {
 
 
     return (
+        <ProtectedRoute>
+        <div className='bg-slate-800'>
+            <Navbar />
+        
         <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-slate-800">
+            
         <div className="md:w-1/2 flex flex-col p-4 max-w-7xl">
             <h1 className="text-center text-3xl sm:text-xl md:text-2xl lg:text-3xl text-white font-custom3 relative z-10 pb-4 shadow-xl">Add New Project</h1>
             <div className="bg-slate-900 text-center text-sm font-medium pb-4 tracking-tight font-serif border border-slate-500 p-4 rounded">
@@ -244,6 +251,8 @@ const AddProject = () => {
         />
         )}
         </div>
+        </div>
+        </ProtectedRoute>
         
     );
    

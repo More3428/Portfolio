@@ -1,6 +1,5 @@
 'use client'
 import React, { useState } from "react";
-import "../FlipCard.css"; 
 
 interface FlipCardProps {
     title: string;
@@ -17,18 +16,23 @@ const FlipCard: React.FC<FlipCardProps> = ({title, imageUrl, description, date})
     };
 
     return (
-        <div className={`flip-card ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
-      <div className="flip-card-inner">
-        <div className="flip-card-front">
-          <h1>{title}</h1>
-          <img src={imageUrl} alt="Gallery Item" />
+        <div className={`flip-card w-64 h-64 perspective-1000 cursor-pointer ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
+      <div className={`flip-card-inner relative w-full h-full text-center transition-transform duration-500 transform ${isFlipped ? "rotate-y-180" : ""}`}>
+
+        <div className="flip-card-front absolute w-full h-full bg-gray-300 flex items-center justify-center rounded-lg shadow-lg">
+          
+          <img src={imageUrl} alt="Gallery Item" className="w-full h-full object-cover rounded-lg" />
         </div>
-        <div className="flip-card-back flex-col">
+        <div className="flip-card-back  absolute w-full h-full bg-gray-900 text-white flex-col items-center justify-center rounded-lg shadow-lg rotate-y-180">
+          
+            <p className="p-4 text-sm font-semibold">
+              {description}
+            </p>
+        
           <div>
-            <p>{description}</p>
-          </div>
-          <div>
-            <p>{date}</p>
+            <p className="p-4 text-sm font-semibold">
+              {date}
+            </p>
           </div>
           
           

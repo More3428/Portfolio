@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { GalleryItem, GalleryUpdateData } from '../GalleryUpload/page';
+import ProtectedRoute from '@/components/ProtectedRoute';
+import Modal from '@/components/Modal/page';
 
 
 
@@ -30,10 +32,12 @@ interface EditGalleryFormProps {
         };
     
         return (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-                <div className="bg-gray-900 p-6 rounded-lg w-1/4">
+            <ProtectedRoute>
+                <Modal isOpen={true} onClose={onClose}>
+            
+                
                     <h2 className="text-xl text-white font-bold mb-4 font-custom3">Edit Gallery Item</h2>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="flex flex-col space-y-4 bg-gray-900 rounded-lg shadow-lg">
                         <div className='p-2'>
                             <h2 className='text-white font-custom3'> Title: </h2>
                             <input type="text" className="rounded p-2" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Title" />
@@ -52,8 +56,11 @@ interface EditGalleryFormProps {
                             <button type="button" onClick={onClose} className="bg-red-500 text-white p-2 rounded">Cancel</button>
                         </div>
                     </form>
-                </div>
-            </div>
+                    
+               
+            
+            </Modal>
+            </ProtectedRoute>
         );
     };
 
