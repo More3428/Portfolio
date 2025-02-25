@@ -1,11 +1,9 @@
 "use client"
-
-
 import '../app/globals.css';
-import About from './components/About/page';
-import Contact from './components/Contact/page';
-import Navbar from './components/Navbar/page';
-import Projects from './components/Projects/page';
+import About from './About/page';
+import Contact from './Contact/page';
+import Navbar from '@/components/Navbar/page';
+import Projects from './Projects/page';
 
 
 
