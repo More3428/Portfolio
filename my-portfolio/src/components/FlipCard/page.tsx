@@ -16,7 +16,7 @@ const FlipCard: React.FC<FlipCardProps> = ({title, imageUrl, description, date})
     };
 
     return (
-        <div className={`flip-card w-64 h-64 perspective-1000 cursor-pointer ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
+        <div className={`flip-card w-96 h-96 perspective-1000 cursor-pointer ${isFlipped ? "flipped" : ""}`} onClick={handleFlip}>
       <div className={`flip-card-inner relative w-full h-full text-center transition-transform duration-500 transform ${isFlipped ? "rotate-y-180" : ""}`}>
 
         <div className="flip-card-front absolute w-full h-full bg-gray-300 flex items-center justify-center rounded-lg shadow-lg">
